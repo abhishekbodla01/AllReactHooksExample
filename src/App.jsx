@@ -1,26 +1,28 @@
-import { useState } from 'react'
-
-import './App.css'
+import { useEffect, useState } from 'react'
+import { BrowserRouter as Router,Route,Routes,Link } from 'react-router-dom';
+import UseEffectHook from './pages/UseEffectHook';
+import UseStateHook from './pages/UseStateHook';
+import UseContextHook from './pages/UseContextHook';
+import UseReducerHook from './pages/UseReducerHook';
+import UseRefHook from './pages/UseRefHook';
+import './App.css';
+import NavBar from './components/navbar';
 
 function App() {
-  const [car, setColor] = useState({
-    color: 'red',
-    model: '2021',
-    price: '$200000',
-    brand: 'BMW',
-  })
-  function changeColor(){
-    setColor((prev) => {
-      return {...prev, color: 'blue', model: '2022', price: '$250000', brand: 'Tesla'}
-    });
-  }
-  return (
+  
+  return(
     <>
-     <h1>My Car Brand:{car.brand}, model: {car.model}</h1>
-      <h2>Price: {car.price}, color:{car.color}</h2>
-     <button onClick={changeColor}>Blue</button>
+    <NavBar />
+    <div className="Container"> 
+    <Routes>
+      <Route path="/usestate" element={<UseStateHook />} />
+      <Route path="/useeffect" element={<UseEffectHook />} />
+      <Route path="/usecontext" element={<UseContextHook />} />
+      <Route path="/usereducer" element={<UseReducerHook />} />
+      <Route path="/useref" element={<UseRefHook />} />
+    </Routes>
+    </div>
     </>
-  )
+  );
 }
-
-export default App
+export default App;
