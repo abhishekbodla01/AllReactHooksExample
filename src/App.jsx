@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router,Route,Routes,Link } from 'react-router-dom';
+import { BrowserRouter as Router,Route,Routes,Link, BrowserRouter } from 'react-router-dom';
 import UseEffectHook from './pages/UseEffectHook';
 import UseStateHook from './pages/UseStateHook';
 import UseContextHook from './pages/UseContextHook';
@@ -9,17 +9,16 @@ import './App.css';
 import NavBar from './components/navbar';
 
 function App() {
-  
   return(
     <>
     <NavBar />
     <div className="Container"> 
     <Routes>
-      <Route path="/usestate" element={<UseStateHook />} />
-      <Route path="/useeffect" element={<UseEffectHook />} />
-      <Route path="/usecontext" element={<UseContextHook />} />
-      <Route path="/usereducer" element={<UseReducerHook />} />
-      <Route path="/useref" element={<UseRefHook />} />
+      <Route path='/usestatehook' element={<UseStateHook />} />
+      <Route path='/useeffecthook' element={<UseEffectHook />} />
+      <Route path='/usecontexthook' element={<UseContextHook />} />
+      <Route path='/usereducerhook' element={<UseReducerHook />} />
+      <Route path='/userefhook' element={<UseRefHook />} />
     </Routes>
     </div>
     </>

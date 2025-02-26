@@ -1,16 +1,20 @@
 import { useState } from 'react';
 
 function UseStateHook() {
-  const [car, setColor] = useState({
-    color: 'red',
-    model: '2021',
-    price: '$200000',
-    brand: 'BMW',
-  });
+  const initialState = {
+    color: 'Red',
+    model: '2018',
+    price: '$85,000',
+    brand: 'Tesla'
+  };
+  const [car, setColor] = useState(initialState);
 
   function changeColor() {
     setColor((prev) => {
-      return { ...prev, color: 'blue', model: '2022', price: '$250000', brand: 'Tesla' };
+      if(prev.color==='Red')
+        return { ...prev, color: 'blue', model: '2022', price: '$100,000', brand: 'Rivian' };
+      else
+        return initialState;
     });
   }
 
